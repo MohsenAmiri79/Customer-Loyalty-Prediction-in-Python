@@ -31,7 +31,11 @@ def clp_network(trial=False, n_layers=-1, units=[]):
     return nn.Sequential(*layers)
 
 # loading the model
-model_dict_path = 'Models\\customer_loyalty_prediction.pt'
+print('Please enter which model you want to use:')
+print('\t1. Manual Model\n\t2. Automatic Model\n\t\t DEFAULT = Automatic Model')
+mode = int(input())
+if mode==1: model_dict_path = 'Models\\customer_loyalty_prediction.pt'
+else: model_dict_path = 'Models\\customer_loyalty_prediction_autp.pt'
 model_dict = torch.load(model_dict_path)
 
 # extracting network architecture data

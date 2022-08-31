@@ -88,7 +88,8 @@ The preprocessed dataset was saved into a .csv file which can be find at 'Data/p
 
 ### 2. Model Training
 For the training of the model we used the *optuna* HPO library.
-the training process iterated over 5 different counts if epochs (30, 60, 90, 120, 150) and 5 different batch sizes (4, 8, 16, 32, 64).
+In the manual model, the training process iterated over 5 different counts if epochs (30, 60, 90, 120, 150) and 5 different batch sizes (4, 8, 16, 32, 64).
+In the automatic model, a number in the [30, 150] range was selected by optuna for the number of epochs. and also a number between (2, 4, 8, 16, 32, 64) was also chosen by optuna for the size of each batch in each trial.
 
 For hyperparameter optimization, we used optuna studies. each study was performed over one of the epoch counts and batch sizes.
 each study contained 25 trials. each trial in a study differed in 4 types of parameters:
